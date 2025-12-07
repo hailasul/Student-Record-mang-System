@@ -93,4 +93,13 @@ public class StudentManager {
             System.out.println(s);  
         }
     }
+    
+    public void reportByDepartment(String dept) {
+        dept=dept.trim();
+        for (Student s : students) {
+            if (s.getDepartment().equalsIgnoreCase(dept)) {
+                System.out.println(s);
+            }
+        }
+    }
 }
