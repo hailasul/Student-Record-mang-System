@@ -100,5 +100,23 @@ public class StudentManager implements IStudentManager {
             }
         }
     }
+    @Override
+public void reportByGpa(double minGpa) {
+    for (Student s : students) {
+        if (s.getGpa() >= minGpa) {
+            System.out.println(s);
+        }
+    }
+}
+
+@Override
+public void reportByYear(int year) {
+    for (Student s : students) {
+        if (s.getYear() == year) {
+            System.out.println(s);
+        }
+    }
 }
 }
+
+
