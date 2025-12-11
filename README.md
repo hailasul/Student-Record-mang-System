@@ -25,4 +25,4 @@ Student added successfully.
 - Haila Sul — GitHub management, README, Technical Report
 - Gadeer  — CRUD , File Handling
 - Riman - UML  , تصميم النظام ,هيكله الملفات
-- A - Mulitihreading ,Exceptions
+- Amani - Mulitihreading ,Exceptions
