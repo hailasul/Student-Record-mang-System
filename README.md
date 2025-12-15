@@ -6,21 +6,21 @@ Supports adding, updating, deleting, searching, viewing students, and generating
 Includes auto-saving and background reporting using multithreading.
 
 ## Requirements
-Java JDK 8 or higher
-students.txt file (created automatically if missing)
+- Java JDK 8 or higher
+- students.txt file (created automatically if missing)
 
 ## How to Compile
-javac *.java
-How to Run
-java Main
+- javac *.java
+- How to Run
+- java Main
 
 ## Sample Input
-add S12345 Sara 3.8 CS 3
-Sample Output
-Student added successfully.
+- add S12345 Sara 3.8 CS 3
+## Sample Output
+- Student added successfully.
 
 ## Project Structure
-StudentProject/
+- StudentProject/
  ├── Main.java
  ├── Student.java
  ├── RegularStudent.java
@@ -32,8 +32,8 @@ StudentProject/
  └── students.txt
 
 ## Team Members
-Haila Sul — GitHub management, README, Technical Report
-Gadeer — CRUD operations, File Handling
-Riman — UML diagram, System Design
-Amani — Multithreading, Exception Handling
+- Haila Sul — GitHub management, README, Technical Report
+- Gadeer — CRUD operations, File Handling
+- Riman — UML diagram, System Design
+- Amani — Multithreading, Exception Handling
 
