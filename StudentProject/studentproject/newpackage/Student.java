@@ -1,7 +1,8 @@
 package studentproject.newpackage;
 
 
-public class Student {
+public abstract class Student {  
+
     private String id;
     private String name;
     private double gpa;
@@ -28,6 +29,8 @@ public class Student {
     public void setGpa(double gpa) { this.gpa = gpa; }
     public void setDepartment(String department) { this.department = department; }
     public void setYear(int year) { this.year = year; }
+
+    public abstract String getStudentType();
 
     @Override
     public String toString() {

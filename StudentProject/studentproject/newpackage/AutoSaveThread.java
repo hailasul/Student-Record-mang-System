@@ -1,23 +1,24 @@
 package studentproject.newpackage;
 
+
 public class AutoSaveThread extends Thread {
 
-    private StudentManager manager;
+    private final StudentManager manager;
 
     public AutoSaveThread(StudentManager manager) {
         this.manager = manager;
     }
 
-    @Override
+   @Override
     public void run() {
-        try {
-            while (true) {
-                Thread.sleep(10000);
-                manager.saveToFile();
-                System.out.println("Auto Saved...");
-            }
-        } catch (Exception e) {
-            System.out.println("Auto Save Error");
+    try {
+        System.out.println("AutoSave thread started...");
+        while (true) {
+            Thread.sleep(10000);
+            manager.saveToFile();
         }
+    } catch (Exception e) {
+        System.out.println("Auto Save Error: " + e.getMessage());
     }
+}
 }

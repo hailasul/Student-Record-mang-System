@@ -20,7 +20,13 @@ public class HonorStudent extends Student {
     }
 
     @Override
+    public String getStudentType() {
+        return "Honor Student";  
+    }
+
+    @Override
     public String toString() {
         return super.toString() + ", Award: " + award;
     }
+
 }

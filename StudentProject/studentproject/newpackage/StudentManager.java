@@ -1,13 +1,18 @@
 package studentproject.newpackage;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+
 
 public class StudentManager implements IStudentManager {  
+    private final List<Student> students = new ArrayList<>();
+    public List<Student> getAllStudents() {
+    return students;
+}
 
-    private ArrayList<Student> students = new ArrayList<>();
+    private static final String FILE_NAME = "students.txt";
 
+   
     @Override
     public void addStudent(Student s) {
         for (Student existingStudent : students) {
@@ -54,38 +59,52 @@ public class StudentManager implements IStudentManager {
 
     @Override
     public void saveToFile() throws IOException {
-        FileWriter fw = new FileWriter("students.txt");
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
+        
         for (Student s : students) {
-            fw.write(s.toString() + "\n");  
+            bw.write(s.toString() + "\n");  
+            bw.newLine();
         }
-        fw.close();  
+       
     }
+}
 
     @Override
     public void loadFromFile() throws IOException {
         students.clear();  
 
-        File file = new File("students.txt");
+        File file = new File(FILE_NAME);
         if (!file.exists()) return;  
 
-        Scanner sc = new Scanner(file);
+        try(Scanner sc = new Scanner(file)) {
 
-        while (sc.hasNextLine()) {
+          while (sc.hasNextLine()) {
             String[] data = sc.nextLine().split(",");  
-            Student s = new Student(
-                    data[0],  
-                    data[1],  
-                    Double.parseDouble(data[2]),  
-                    data[3], 
-                    Integer.parseInt(data[4])  
-            );
-            students.add(s);  
+            
+            String type = data[0]; 
+            String id = data[1];
+            String name = data[2];
+            double gpa = Double.parseDouble(data[3]);  
+            String dept = data[4] ;
+            int year = Integer.parseInt(data[5]);
+
+            if ("Honor".equalsIgnoreCase(type)) {
+                String award = data.length > 6 ? data[6] : "";
+                students.add(new HonorStudent(id, name, gpa, dept, year, award));
+             } else {
+                students.add(new RegularStudent(id, name, gpa, dept, year));
+                }
         }
-        sc.close();  
+    
     }
+}
 
     @Override
     public void printAll() {
+        if (students.isEmpty()){
+            System.out.println("No students available.");
+            return;
+        }
         for (Student s : students) {
             System.out.println(s);  
         }
@@ -93,15 +112,16 @@ public class StudentManager implements IStudentManager {
 
     @Override
     public void reportByDepartment(String dept) {
-        dept = dept.trim();
+         dept = dept.trim();
         for (Student s : students) {
             if (s.getDepartment().equalsIgnoreCase(dept)) {
                 System.out.println(s);
             }
         }
     }
+
     @Override
-public void reportByGpa(double minGpa) {
+    public void reportByGpa(double minGpa) {
     for (Student s : students) {
         if (s.getGpa() >= minGpa) {
             System.out.println(s);
@@ -109,14 +129,29 @@ public void reportByGpa(double minGpa) {
     }
 }
 
-@Override
-public void reportByYear(int year) {
-    for (Student s : students) {
-        if (s.getYear() == year) {
+     @Override
+     public void reportByYear(int year) {
+     for (Student s : students) {
+         if (s.getYear() == year) {
             System.out.println(s);
         }
     }
 }
+     @Override
+     public void reportTopStudent() {
+         if (students.isEmpty()) {
+           System.out.println("No students available.");
+            return;
+    }
+    Student top = students.get(0);
+    for (Student s : students) {
+        if (s.getGpa() > top.getGpa()) {
+            top = s;
+        }
+    }
+    System.out.println("Top Student: " + top);
+}
+
 }
 
 
