@@ -21,15 +21,15 @@ Includes auto-saving and background reporting using multithreading.
 
 ## Project Structure
 - StudentProject/
- ├── Main.java
- ├── Student.java
- ├── RegularStudent.java
- ├── HonorStudent.java
- ├── IStudentManager.java
- ├── StudentManager.java
- ├── AutoSaveThread.java
- ├── ReportThread.java
- └── students.txt
+ - ├── Main.java
+-  ├── Student.java
+-  ├── RegularStudent.java
+-  ├── HonorStudent.java
+-  ├── IStudentManager.java
+-  ├── StudentManager.java
+ - ├── AutoSaveThread.java
+-  ├── ReportThread.java
+-  └── students.txt
 
 ## Team Members
 - Haila Sul — GitHub management, README, Technical Report
