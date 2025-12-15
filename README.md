@@ -1,25 +1,39 @@
-# Student Record Management System (SRMS)
+Overview
+A Java console-based system for managing university student records.
+Supports adding, updating, deleting, searching, viewing students, and generating reports.
+Includes auto-saving and background reporting using multithreading.
 
-A Java-based system for managing university student records. It supports adding, updating, deleting, saving, and loading student data, with multithreading features for auto-saving and report generation.
+Requirements
+Java JDK 8 or higher
+students.txt file (created automatically if missing)
 
-## How to Compile and Run
+How to Compile
+javac *.java
+How to Run
+java Main
 
-1. Open terminal or command prompt.
-2. Navigate to the project directory.
-3. Compile the code:
-   javac *.java
-4. Run the program:
-   java Main
-
-## Requirements
-- Java 8 or higher
-- students.txt file in the project directory
-
-## Sample Input
-Add student: ID=S12345, Name=Sara, GPA=3.8, Department=CS
-
-## Sample Output
+Sample Input
+add S12345 Sara 3.8 CS 3
+Sample Output
 Student added successfully.
+
+Project Structure
+StudentProject/
+ ├── Main.java
+ ├── Student.java
+ ├── RegularStudent.java
+ ├── HonorStudent.java
+ ├── IStudentManager.java
+ ├── StudentManager.java
+ ├── AutoSaveThread.java
+ ├── ReportThread.java
+ └── students.txt
+
+Team Members
+Haila Sul — GitHub management, README, Technical Report
+Gadeer — CRUD operations, File Handling
+Riman — UML diagram, System Design
+Amani — Multithreading, Exception Handling
 
 ## Team Members
 - Haila Sul — GitHub management, README, Technical Report
